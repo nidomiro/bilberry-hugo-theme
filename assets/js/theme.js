@@ -3,6 +3,7 @@ require('jquery');
 require('flexslider');
 require('algoliasearch/dist/algoliasearch.jquery');
 require('autocomplete.js/dist/autocomplete.jquery');
+require('magnific-popup')
 let hljs = require('highlight.js');
 
 $(document).ready(function () {
@@ -15,12 +16,12 @@ $(document).ready(function () {
     // Commento support to block search focus when hitting the S key
     blockSearchFocus = false;
 
-    $('#commento').focusin(function() {
-      blockSearchFocus = true;
+    $('#commento').focusin(function () {
+        blockSearchFocus = true;
     });
 
-    $('#commento').focusout(function() {
-      blockSearchFocus = false;
+    $('#commento').focusout(function () {
+        blockSearchFocus = false;
     });
 
     // Keyboard-Support
@@ -29,8 +30,7 @@ $(document).ready(function () {
             if (!$("nav").hasClass('permanentTopNav'))
                 $("nav").slideUp();
             $("#search").autocomplete("val", "");
-        }
-        else if (e.keyCode === 83 && !blockSearchFocus) {
+        } else if (e.keyCode === 83 && !blockSearchFocus) {
             if (!$("nav").hasClass('permanentTopNav'))
                 $("nav").slideDown();
             $("#search").focus();
@@ -47,15 +47,18 @@ $(document).ready(function () {
 
     // Algolia-Search
     if ($('#activate-algolia-search').length) {
-        var client = algoliasearch($('#algolia-search-appId').val(), $('#algolia-search-apiKey').val());
-        var index = client.initIndex($('#algolia-search-indexName').val());
+        const client = algoliasearch($('#algolia-search-appId').val(), $('#algolia-search-apiKey').val());
+        const index = client.initIndex($('#algolia-search-indexName').val());
 
-        var autocompleteSource = $.fn.autocomplete.sources.hits(index, { hitsPerPage: 10 });
+        let autocompleteSource = $.fn.autocomplete.sources.hits(index, {hitsPerPage: 10});
         if ($('#algolia-search-currentLanguageOnly').length) {
-            autocompleteSource = $.fn.autocomplete.sources.hits(index, { hitsPerPage: 5, filters: 'language: ' + $('html').attr('lang') });
+            autocompleteSource = $.fn.autocomplete.sources.hits(index, {
+                hitsPerPage: 5,
+                filters: 'language: ' + $('html').attr('lang')
+            });
         }
 
-        $('#search').autocomplete({ hint: false, autoselect: true, debug: false },
+        $('#search').autocomplete({hint: false, autoselect: true, debug: false},
             [
                 {
                     source: autocompleteSource,
@@ -74,7 +77,7 @@ $(document).ready(function () {
                             return "<span class='empty'>" + $('#algolia-search-noSearchResults').val() + "</span>"
                         },
                         footer: function () {
-                            return '<div class="branding">Powered by <img src="' + $('#siteBaseUrl').attr('href') + '/algolia-logo-light.svg" /></div>'
+                            return '<div class="branding">Powered by <img src="' + $('#siteBaseUrl').attr('href') + '/algolia-logo-light.svg"  alt=""/></div>'
                         }
                     },
                 }
@@ -83,11 +86,23 @@ $(document).ready(function () {
                 window.location = (suggestion.url);
             })
             .keypress(function (event, suggestion) {
-                if (event.which == 13) {
+                if (event.which === 13) {
                     window.location = (suggestion.url);
                 }
             });
     }
+
+    $('.image-block').magnificPopup({
+        type: "image",
+        delegate: "a",
+        image: {
+            titleSrc: function (item) {
+                return item.el.parent().find('figcaption').text();
+            },
+
+            verticalFit: true // Fits image in area vertically
+        }
+    });
 });
 
 hljs.initHighlightingOnLoad();
