@@ -77,7 +77,7 @@ $(document).ready(function () {
                             return "<span class='empty'>" + $('#algolia-search-noSearchResults').val() + "</span>"
                         },
                         footer: function () {
-                            return '<div class="branding">Powered by <img src="' + $('#siteBaseUrl').attr('href') + '/algolia-logo-light.svg"  alt=""/></div>'
+                            return '<div class="branding">Powered by <img src="' + $('meta[name=siteBaseUrl]').attr("content") + '/algolia-logo-light.svg"  alt=""/></div>'
                         }
                     },
                 }
@@ -103,6 +103,19 @@ $(document).ready(function () {
             verticalFit: true // Fits image in area vertically
         }
     });
+
+    $('p').magnificPopup({
+        type: "image",
+        delegate: "a",
+        image: {
+            titleSrc: function (item) {
+                return item.el.find('img').attr('alt');
+            },
+
+            verticalFit: true // Fits image in area vertically
+        }
+    });
+
 });
 
 hljs.initHighlightingOnLoad();
