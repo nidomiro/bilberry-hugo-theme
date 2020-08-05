@@ -39,6 +39,9 @@ $footer-border-color: #eee;
 $footer-background-color: rgba(#ffffff, 80);
 $footer-headline-color: #444;
 
+$preformatted-text-background-color: darken($page-background-color, 2);
+$preformatted-text-border-color: darken($preformatted-text-background-color, 8);
+
 
 @mixin featuredImage() {
     .featured-image {
