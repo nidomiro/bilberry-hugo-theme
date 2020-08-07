@@ -139,10 +139,10 @@ article {
             font-size: 1.1em;
 
             cite {
-                text-transform: uppercase;
+                //text-transform: uppercase;
                 font-style: normal;
                 font-weight: bold;
-                font-size: 0.9em;
+                font-size: 0.8em;
             }
 
             p:last-child {
@@ -355,6 +355,26 @@ article {
             }
         }
     }
+
+    dl {
+        margin-bottom: 2em;
+
+        dt {
+            font-weight: bold;
+        }
+
+        dd {
+            margin-left: 2em;
+            margin-bottom: 0.5em;
+        }
+    }
+
+    ul {
+        font-size: 1em;
+    }
+
+
+
 }
 
 #comments-container  {
