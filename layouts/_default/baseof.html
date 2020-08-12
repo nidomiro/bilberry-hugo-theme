@@ -90,7 +90,9 @@
     <link rel=”canonical” href=”{{ . }}” />
     {{ end }}
 
-    <link rel="stylesheet" href="{{ "theme.css" | absURL }}">
+    {{ $secureCSS := (resources.Get "theme.css") | resources.Fingerprint "sha512" }}
+
+    <link rel="stylesheet" href="{{ $secureCSS.Permalink }}" integrity="{{ $secureCSS.Data.Integrity }}">
 
     {{ partial "twitter-card.html" . }}
 
