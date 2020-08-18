@@ -24,6 +24,13 @@
  */
 
 /*!
+ * clipboard.js v2.0.6
+ * https://clipboardjs.com/
+ * 
+ * Licensed MIT © Zeno Rocha
+ */
+
+/*!
  * jQuery JavaScript Library v3.5.1
  * https://jquery.com/
  *
@@ -40,3 +47,11 @@
 /*! Magnific Popup - v1.1.0 - 2016-02-20
 * http://dimsemenov.com/plugins/magnific-popup/
 * Copyright (c) 2016 Dmitry Semenov; */
+
+/*! tooltipster v4.2.8 */
+
+//! moment.js
+
+//! moment.js language configuration
+
+//! moment.js locale configuration

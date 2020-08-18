@@ -3,9 +3,11 @@
   "version": "2.0.0",
   "description": " ",
   "dependencies": {
+    "clipboard": "^2.0.6",
     "laravel-mix": "^5.0.4",
-    "magnific-popup": "^1.1.0",
-    "normalize.css": "^8.0.1"
+    "magnific-popup": "github:Lednerb/Magnific-Popup",
+    "normalize.css": "^8.0.1",
+    "tooltipster": "^4.2.8"
   },
   "devDependencies": {
     "@fortawesome/fontawesome-free": "^5.14.0",

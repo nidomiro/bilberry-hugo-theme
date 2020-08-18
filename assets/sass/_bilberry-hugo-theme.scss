@@ -1,3 +1,5 @@
+@import "no-js";
+
 .bilberry-hugo-theme {
     background-color: $page-background-color;
     font-family: $content-font;
@@ -30,14 +32,31 @@
     }
 
     pre {
+        position: relative;
+
         code {
             padding: 0.75em;
             font-size: 0.9em;
 
             overflow-x: scroll;
             white-space: pre;
-            background: #3f3f3f;
-            color: #dcdcdc;
+            overflow-x: auto;
+        }
+
+        .copy-button {
+            display: none;
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background: #f1f1f1;
+            padding: 4px;
+            font-size: 12pt;
+            line-height: normal;
+            height: auto;
+        }
+
+        &:hover .copy-button {
+            display: block;
         }
     }
 
@@ -46,6 +65,14 @@
         border: 0;
         margin: 0;
         white-space: normal;
+    }
+
+    .tooltipster-light {
+        font-size: 0.75em;
+
+        .tooltipster-content {
+            padding: 6px 10px;
+        }
     }
 
     .bubble .fas {
@@ -80,6 +107,7 @@
     .fa-youtube-adblock-proof:before {
         content: "\F167";
     }
+
 
     @import "topnav";
 

@@ -32,9 +32,10 @@ If you like this theme and/or use it for commercial purposes, please support me!
   - [Disqus comments](#Disqus-comments)
   - [Responsive Design](#Responsive-Design)
   - [Automatic Image Resizing](#Automatic-Image-Resizing)
-  - [Clickable images (Image modal)](#clickable-images-image-modal)
+  - [Image Modal Zoom](#Image-Modal-Zoom)
   - [Permanent Top Navigation](#Permanent-Top-Navigation)
   - [MathJAX Markup](#MathJAX-Markup)
+  - [Disabled Javascript Support](#Disabled-Javascript-Support)
 - [Favicons](#Favicons)
 - [Custom 404 site](#Custom-404-site)
 - [Custom Post Types](#Custom-Post-Types)
@@ -165,7 +166,7 @@ To close it again you can enter `esc` at any time.
 
 ### Post Types
 Bilberry comes with a bunch of predefined post types.
-Available post types are `article`, `audio`, `code`, `gallery`, `link`, `page`, `quote` and `video`.
+Available post types are `article`, `audio`, `code`, `gallery`, `link`, `page`, `quote`, `status` and `video`.
 
 To use a post type, just create new content via the hugo command.<br>
 For example:
@@ -261,33 +262,10 @@ Bilberry is optimized for desktop and mobile devices (tablets and smartphones).
 The bilberry theme handles image crops and resizes automatically by default.
 However, if you want to disable this functionality in general, you can set `resizeImages: false` in your `config.toml` file.
 
-If you want to disable this functionality just on some posts, you can set `resizeImages: false` in your post's settings.
+If you want to disable this functionality just on some posts, you can set `resizeImages: false` in your post's frontmatter settings.
 
-### Clickable images (Image modal)
-
-If you want to open a larger version of an image in post on click use the following code:
-
-#### Markdown:
-Sadly, the only option right now is to use html:
-```html
-<a href="../server-config-from-git/git-config-change.svg" class="image-modal"><img src="../server-config-from-git/git-config-change.svg" alt="My alt-text"></a>
-```
-
-In order to use html in Markdown you have to add this to your `config.toml`:
-```toml
-[markup]
-    [markup.goldmark]
-        [markup.goldmark.renderer]
-            unsafe = true
-```
-
-
-#### Asciidoc:
-```asciidoc
-[#my-anchor]
-.My caption
-image::my-image.png[alt="My alt-text", link="my-image.png"]
-```
+### Image Modal Zoom
+When including an image that has larger dimensions than the content area, the image gets clickable and a bigger version will open in a lightbox.
 
 ### Permanent Top Navigation
 If you want to permanently display the top navigation with the algolia search bar and the `page` entries, you can set the `permanentTopNav` option to `true` in your site's config file.
@@ -295,8 +273,13 @@ If you want to permanently display the top navigation with the algolia search ba
 Note that on mobile devices the navigation will still be collapsed because otherwise, the navigation menu hides the essential parts of your site.
 
 ### MathJAX Markup
-
 If you want to add [MathJAX](https://www.mathjax.org) markup support, set parameter `enable_mathjax` option to `true` in your site's config file.
+
+### Disabled Javascript Support
+Although this theme has a lot of features that only work with enabled javascript, it also fully supports disabled javascript.
+Disabling javascript will not break any styles or essential functionality on the site.
+
+Just head over to the demo page, disable javascript in your browser and check the results!
 
 ## Favicons
 Using favicons nowadays is not a trivial thing.
