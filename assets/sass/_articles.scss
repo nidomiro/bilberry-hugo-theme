@@ -411,6 +411,26 @@ article {
             margin-bottom: 0;
         }
     }
+
+    dl {
+        margin-bottom: 2em;
+
+        dt {
+            font-weight: bold;
+        }
+
+        dd {
+            margin-left: 2em;
+            margin-bottom: 0.5em;
+        }
+    }
+
+    ul {
+        font-size: 1em;
+    }
+
+
+
 }
 
 #comments-container  {
